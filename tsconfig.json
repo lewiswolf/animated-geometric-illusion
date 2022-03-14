@@ -1,0 +1,55 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist",
+		"types": [
+			"p5/global"
+		],
+		// type checking
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"alwaysStrict": true,
+		"exactOptionalPropertyTypes": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noPropertyAccessFromIndexSignature": false,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strict": true,
+		"strictBindCallApply": true,
+		"strictFunctionTypes": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"useUnknownInCatchVariables": true,
+		// modules
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		// emit
+		"noEmit": false,
+		// javascript support
+		"allowJs": false,
+		// interop constraints
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": false,
+		// backwards compatibility
+		"keyofStringsOnly": true,
+		// language and environment
+		"jsx": "react-jsx",
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"target": "es6",
+		// completeness
+		"skipLibCheck": true
+	},
+	"include": [
+		"src"
+	]
+}

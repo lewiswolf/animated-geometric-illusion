@@ -1,0 +1,10 @@
+html,
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	font-family: helvetica, sans-serif;
+	font-size: 16px;
+	color: black;
+	-webkit-text-size-adjust: 100%;
+}
