@@ -6,7 +6,8 @@
 	"author": "lewis wolf",
 	"scripts": {
 		"build": "webpack --config ./config/webpack.config.prod.js",
-		"start": "webpack serve --config ./config/webpack.config.dev.js"
+		"start": "webpack serve --config ./config/webpack.config.dev.js",
+		"wasm": "emcc ./src/lib/index.cpp -o ./public/webassembly/geometry.wasm --no-entry"
 	},
 	"devDependencies": {
 		"adm-zip": "^0.5.9",

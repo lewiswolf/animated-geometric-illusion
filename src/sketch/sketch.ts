@@ -1,14 +1,19 @@
 // dependencies
 import p5 from 'p5'
 
+// src
+import { importGeometry } from '../lib/import'
+import { Geometry } from '../lib/types';
+
 export default function sketch(p5: p5): void {
-	p5.setup = () => {
+	let geometry: Geometry;
+
+	p5.setup = async () => {
+		geometry = await importGeometry()
 		p5.createCanvas(p5.windowWidth, p5.windowHeight)
 	}
 
-	p5.windowResized = () => {
-		p5.resizeCanvas(p5.windowWidth, p5.windowHeight)
-	}
+	p5.windowResized = () => p5.resizeCanvas(p5.windowWidth, p5.windowHeight)
 
 	p5.draw = () => {
 		p5.clear(0, 0, 0, 0)
@@ -20,5 +25,6 @@ export default function sketch(p5: p5): void {
 			50,
 			50,
 		)
+		geometry?.add !== undefined && console.log(geometry.add!(4.3, 3.8))
 	}
 }
