@@ -7,7 +7,7 @@
 	"scripts": {
 		"build": "webpack --config ./config/webpack.config.prod.js",
 		"start": "webpack serve --config ./config/webpack.config.dev.js",
-		"wasm": "emcc ./src/lib/index.cpp -o ./public/webassembly/geometry.wasm --no-entry"
+		"wasm": "emcc ./src/lib/index.cpp -o ./public/geometry.wasm --no-entry"
 	},
 	"devDependencies": {
 		"adm-zip": "^0.5.9",
@@ -23,6 +23,6 @@
 	"dependencies": {
 		"@types/p5": "^1.4.1",
 		"p5": "^1.4.1",
-		"typescript": "^4.6.2"
+		"typescript": "^4.6.3"
 	}
 }
