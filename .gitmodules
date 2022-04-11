@@ -1,3 +1,0 @@
-[submodule "src/lib/geometry-cpp"]
-	path = src/lib/geometry-cpp
-	url = https://github.com/lewiswolf/geometry-cpp
