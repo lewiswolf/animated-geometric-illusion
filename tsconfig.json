@@ -1,9 +1,7 @@
 {
 	"compilerOptions": {
 		"outDir": "./dist",
-		"types": [
-			"p5/global"
-		],
+		"types": ["p5/global"],
 		// type checking
 		"allowUnreachableCode": false,
 		"allowUnusedLabels": false,
@@ -40,16 +38,10 @@
 		"keyofStringsOnly": true,
 		// language and environment
 		"jsx": "react-jsx",
-		"lib": [
-			"dom",
-			"dom.iterable",
-			"esnext"
-		],
+		"lib": ["dom", "dom.iterable", "esnext"],
 		"target": "es6",
 		// completeness
 		"skipLibCheck": true
 	},
-	"include": [
-		"src"
-	]
+	"include": ["src"]
 }

@@ -2,6 +2,8 @@
 
 🤘
 
+This repo was made using [fxhash-webpack-boilerplate](https://github.com/fxhash/fxhash-webpack-boilerplate.git).
+
 ## Development
 
 ```sh
