@@ -1,12 +1,6 @@
 // src
-import {
-	compareShortestVector,
-	generateConvexPolygon,
-	intersectionLineLine,
-	isPointInsideOfPolygon,
-	rotatePolygon,
-} from './utils'
 import { Line, Point } from './types'
+import { compareShortestVector, intersectionLineLine, isPointInsideOfPolygon } from './utils'
 
 export class ConvexPolygon {
 	/*
@@ -14,32 +8,11 @@ export class ConvexPolygon {
 	*/
 
 	N: number
-	size: number
 	vertices: Point[]
 
-	constructor(N: number, size: number) {
+	constructor(N: number) {
 		this.N = N
-		this.size = size
-		this.vertices = generateConvexPolygon(N).map((v: Point) => {
-			return {
-				x: v.x * this.size,
-				y: v.y * this.size,
-			}
-		})
-	}
-
-	resize = (size: number): void => {
-		this.vertices = this.vertices.map((v: Point) => {
-			return {
-				x: (v.x / this.size) * size,
-				y: (v.y / this.size) * size,
-			}
-		})
-		this.size = size
-	}
-
-	rotate = (theta: number): void => {
-		this.vertices = rotatePolygon(this.vertices, theta)
+		this.vertices = []
 	}
 
 	lines = (): Line[] =>
