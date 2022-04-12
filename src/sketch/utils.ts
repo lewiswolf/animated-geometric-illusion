@@ -1,24 +1,24 @@
 // src
 import { Line, Point } from './types'
 
-export const compareShortestVector = (p: Point, a: Point[]): [Point, number] => {
+export const compareShortestVector = (p: Point, V: Point[]): [Point, number] => {
 	/*
-	Compare a point with an array of points by vector length and return the
-	closest point. Return the point itself if a = [].
+	Compare a point with an array points by vector length and return the
+	closest point. Return the point itself if V = [].
 	*/
 
 	let vec_min: number = 0
-	let a_closest: Point = p
+	let v_closest: Point = p
 	let idx: number = 0
-	a.forEach((a_p: Point, i: number) => {
-		const vec = Math.sqrt(Math.pow(p.x - a_p.x, 2) + Math.pow(p.y - a_p.y, 2))
+	V.forEach((v: Point, i: number) => {
+		const vec = Math.sqrt(Math.pow(p.x - v.x, 2) + Math.pow(p.y - v.y, 2))
 		if (vec < vec_min || i === 0) {
 			vec_min = vec
-			a_closest = a_p
+			v_closest = v
 			idx = i
 		}
 	})
-	return [a_closest, idx]
+	return [v_closest, idx]
 }
 
 export function generateConvexPolygon(N: number): Point[] {
@@ -33,12 +33,12 @@ export function generateConvexPolygon(N: number): Point[] {
 		V = a polygon of N random vertices
 	*/
 
-	// initialise and sort random coordinates
+	// initialise variables
+	let V: Point[] = []
 	const X = Array.from({ length: N }, () => 0)
 	const Y = Array.from({ length: N }, () => 0)
 	const X_rand = Array.from({ length: N }, () => fxrand()).sort()
 	const Y_rand = Array.from({ length: N }, () => fxrand()).sort()
-	let V: Point[] = []
 	let last_true: number = 0
 	let last_false: number = 0
 
@@ -124,12 +124,12 @@ export const isPointInsideOfPolygon = (p: Point, V: Point[]): boolean => {
 
 	let collision = false
 	// go through each of the vertices, plus the next vertex in the list
-	V.forEach((c: Point, i: number) => {
-		const n = V[(i + 1) % V.length]!
+	V.forEach((v: Point, i: number) => {
+		const w = V[(i + 1) % V.length]!
 		// compare position, flip 'collision' variable back and forth
 		if (
-			((c.y >= p.y && n.y < p.y) || (c.y < p.y && n.y >= p.y)) &&
-			p.x < ((n.x - c.x) * (p.y - c.y)) / (n.y - c.y) + c.x
+			((v.y >= p.y && w.y < p.y) || (v.y < p.y && w.y >= p.y)) &&
+			p.x < ((w.x - v.x) * (p.y - v.y)) / (w.y - v.y) + v.x
 		) {
 			collision = !collision
 		}
