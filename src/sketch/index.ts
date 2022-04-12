@@ -98,20 +98,20 @@ export default function sketch(p5: p5): void {
 		// clear, position and paint canvas
 		p5.clear(0, 0, 0, 1)
 		p5.translate(p5.width / 2, p5.height / 2)
-		p5.background('#b0e0e6')
+		p5.background('#101010')
 		p5.strokeWeight(2)
 		// polygon 0 always shows
-		p5.stroke('#cc2400')
+		p5.stroke('#E05E45') //  red
 		for (let line of polygons[0].lines()) {
 			p5.line(line[0].x * size, line[0].y * size, line[1].x * size, line[1].y * size)
 		}
 		// polygon 1 is hidden by polygon 0
-		p5.stroke('#228b22')
+		p5.stroke('#6C90E0') // blue
 		for (let line of polygons[1].linesOutside(polygons[0])) {
 			p5.line(line[0].x * size, line[0].y * size, line[1].x * size, line[1].y * size)
 		}
 		// polygon 2 inside of polygon 0, but hidden by polygon 1
-		p5.stroke('#ddc726')
+		p5.stroke('#AFE055') // green
 		for (let line of polygons[2].linesInside(polygons[0])) {
 			p5.line(line[0].x * size, line[0].y * size, line[1].x * size, line[1].y * size)
 		}

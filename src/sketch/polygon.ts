@@ -6,7 +6,7 @@ export class Polygon {
 	/*
 	A wrapper class for a polygon. This class is mainly use to generate lines from vertices.
 	Originally all the logic for the polygon was housed in this class, though it after a while
-	it became easier to mutate the polygon from outside. 
+	it became easier to mutate the polygon from outside.
 	*/
 
 	N: number
