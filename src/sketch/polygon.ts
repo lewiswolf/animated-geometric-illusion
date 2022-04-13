@@ -4,9 +4,9 @@ import { compareShortestVector, intersectionLineLine, isPointInsideOfPolygon } f
 
 export class Polygon {
 	/*
-	A wrapper class for a polygon. This class is mainly use to generate lines from vertices.
-	Originally all the logic for the polygon was housed in this class, though it after a while
-	it became easier to mutate the polygon from outside.
+	A wrapper class for a polygon. This class is mainly uses to generate lines from vertices.
+	Originally, all of the logic for the polygons was housed in this class, however, after a while,
+	it became easier to mutate the polygon from outside of this class.
 	*/
 
 	N: number
@@ -30,7 +30,7 @@ export class Polygon {
 
 	linesInside = (P_prime: Polygon): Line[] => {
 		/*
-		Returns all the lines/line segments that are inside of P_prime.
+		Returns all of the lines/line segments that are inside of P_prime.
 		*/
 
 		let out: Line[] = []
@@ -45,20 +45,20 @@ export class Polygon {
 				isPointInsideOfPolygon(line[1], P_prime.vertices),
 			]
 			if (v_inside[0] && v_inside[1]) {
-				// if both vertex of inside of polygon and no intersections draw line between
-				// vertex
+				// if both vertices are inside of P_prime with no intersections, draw a line
+				// between each vertex
 				out.push(line)
 			} else if (v_inside[0] && !v_inside[1] && intersections[0]) {
-				// if vertex A outside, vertex B inside, find closest intersection and draw
-				// line A to intersection
+				// if vertex A is inside and vertex B outside, find closest intersection and draw
+				// from vertex A to intersection
 				out.push([line[0], intersections[0]])
 			} else if (!v_inside[0] && v_inside[1] && intersections[0]) {
-				// if vertex A inside, vertex B outside, find closest intersection and draw
-				// line B to intersection
+				// if vertex A is outside and vertex B inside, find closest intersection and draw
+				// from vertex B to intersection
 				out.push([line[1], intersections[0]])
 			} else if (!v_inside[0] && !v_inside[1] && intersections[0] && intersections[1]) {
-				// if both vertex outside of polygon and two intersections, draw line between
-				// intersections
+				// if both vertices are outside of the polygon with two intersections, draw a line
+				// between both intersections
 				out.push([intersections[0], intersections[1]])
 			}
 		}
@@ -67,7 +67,7 @@ export class Polygon {
 
 	linesOutside = (P_prime: Polygon): Line[] => {
 		/*
-		Returns all the lines/line segments that are outside of P_prime.
+		Returns all of the lines/line segments that are outside of P_prime.
 		*/
 
 		let out: Line[] = []
@@ -82,22 +82,19 @@ export class Polygon {
 				isPointInsideOfPolygon(line[1], P_prime.vertices),
 			]
 			if (!v_inside[0] && !v_inside[1] && !intersections.length) {
-				// if both vertex of inside of triangle and no intersections draw line between
-				// vertex
+				// if both vertices are outside of P_prime with no intersections, draw a line
+				// between each vertex
 				out.push(line)
 			} else if (!v_inside[0] && v_inside[1] && intersections) {
-				// if vertex A outside, vertex B inside, find closest intersection and draw
-				// line A to intersection
+				// if vertex A is outside and vertex B inside, find closest intersection and draw
+				// from vertex B to intersection
 				out.push([line[0], compareShortestVector(line[0], intersections)[0]])
 			} else if (v_inside[0] && !v_inside[1] && intersections) {
-				// if vertex A inside, vertex B outside, find closest intersection and draw
-				// line B to intersection
+				// if vertex A is inside and vertex B outside, find closest intersection and draw
+				// from vertex A to intersection
 				out.push([line[1], compareShortestVector(line[1], intersections)[0]])
-			} else if (v_inside[0] && v_inside[1] && intersections[0] && intersections[1]) {
-				// if both vertex in triangle
-				out.push([intersections[0], intersections[1]])
 			} else if (!v_inside[0] && !v_inside[1] && intersections) {
-				// if both vertex  of triangle and two intersections
+				// if both vertices are outside of the polygon, draw between intersections
 				out.push([line[0], compareShortestVector(line[0], intersections)[0]])
 				out.push([line[1], compareShortestVector(line[1], intersections)[0]])
 			}
