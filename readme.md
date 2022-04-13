@@ -7,6 +7,7 @@ This repo was made using [fxhash-webpack-boilerplate](https://github.com/fxhash/
 ## Development
 
 ```sh
+$ npm i
 $ npm start
 ```
 
