@@ -1,18 +1,14 @@
-const path = require("path")
-const webpack = require("webpack")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	entry: './src/index.ts',
-	externals: {
-		fs: true,
-		path: true,
-	},
 	module: {
 		rules: [
 			{
 				test: /\.css$/i,
-				use: ["style-loader", "css-loader"],
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.tsx?$/,
@@ -22,16 +18,16 @@ module.exports = {
 		],
 	},
 	output: {
-		path: path.resolve(__dirname, "../dist"),
-		filename: "bundle.js",
-		clean: true
+		path: path.resolve(__dirname, '../dist'),
+		filename: 'bundle.js',
+		clean: true,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "./public/index.html",
-			inject: "body",
-			publicPath: "./"
-		})
+			template: './public/index.html',
+			inject: 'body',
+			publicPath: './',
+		}),
 	],
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
