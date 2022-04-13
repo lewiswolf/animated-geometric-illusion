@@ -76,8 +76,8 @@ export default function sketch(p5: p5): void {
 				// to the first
 				polygons[i]!.vertices = morph.polygons_prime[i]!.map((v: Point, j: number) => {
 					return {
-						x: v.x + (morph.polygons[i]![j]!.x - v.x) * t_2 - 1,
-						y: v.y + (morph.polygons[i]![j]!.y - v.y) * t_2 - 1,
+						x: v.x + (morph.polygons[i]![j]!.x - v.x) * (t_2 - 1),
+						y: v.y + (morph.polygons[i]![j]!.y - v.y) * (t_2 - 1),
 					}
 				})
 			}
