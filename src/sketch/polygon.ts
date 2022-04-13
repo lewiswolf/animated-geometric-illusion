@@ -93,6 +93,9 @@ export class Polygon {
 				// if vertex A is inside and vertex B outside, find closest intersection and draw
 				// from vertex A to intersection
 				out.push([line[1], compareShortestVector(line[1], intersections)[0]])
+			} else if (v_inside[0] && v_inside[1] && intersections[0] && intersections[1]) {
+				// if both vertices are inside the polygon, draw between intersections
+				out.push([intersections[0], intersections[1]])
 			} else if (!v_inside[0] && !v_inside[1] && intersections) {
 				// if both vertices are outside of the polygon, draw between intersections
 				out.push([line[0], compareShortestVector(line[0], intersections)[0]])
